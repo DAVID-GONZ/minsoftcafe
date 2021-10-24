@@ -21,8 +21,6 @@ const readSales = (request, response) => {
   const clientId = request.query.clientId;
   const clientName = request.query.clientName;
   const saleDate = request.query.saleDate;
-  
-
 
   const filter = {};
   if (id) {
@@ -48,7 +46,7 @@ const readSales = (request, response) => {
 
 // PATCH
 const updateSale = (request, response) => {
-  const id = request.params._id;
+  const idSale = request.params.id;
   if (!idSale) {
     return response.status(400).send({ error: 'No hay id, para modificar' });
   }
@@ -62,14 +60,14 @@ const updateSale = (request, response) => {
       if (error) {
         return response.status(500).send({ error });
       }
-      return response.send(result);
+      return response.status(200).send(result);
     });
   });
 };
 
 // DELETE
 const deleteSale = (request, response) => {
-  const idSale = request.params.idSale;
+  const idSale = request.params.id;
   if (!idSale) {
     return response.status(400).send({ error: 'No hay id, para eliminar' });
   }
@@ -77,7 +75,7 @@ const deleteSale = (request, response) => {
     if (error) {
       return response.status(500).send({ error });
     }
-    return response.send(result);
+    return response.status(200).send(result);
   });
 };
 
