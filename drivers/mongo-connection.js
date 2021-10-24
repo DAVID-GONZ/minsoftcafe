@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const dbUsername = process.env.DB_USERNAME;
+const dbUsername = process.env.DB_USERN;
 const dbPassword = process.env.DB_PASSWORD;
 const dbUrl = process.env.DB_URL;
 
