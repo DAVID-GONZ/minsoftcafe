@@ -4,7 +4,7 @@
   "description": "Modulo de Administracion de Ventas",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node app.js",
     "watch": "nodemon app.js"
   },
   "repository": {
