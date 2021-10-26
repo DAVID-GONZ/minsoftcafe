@@ -8,7 +8,7 @@ const users = [];
 const createUser = async (request, response) => {
   const user = request.body;
 
-  if (!user.name) {
+  if (!user.userName) {
     return response.status(400).send({
       ok: false,
       error: 'No ingresó el nombre',
@@ -56,81 +56,81 @@ const createUser = async (request, response) => {
 // GET
 const readUsers = (request, response) => {
 
-  const id = request.query.id;
-  const username = request.query.username;
-  const name = request.query.name;
-  const DNI = request.query.DNI;
+  const id= request.query._id;
+  const userName = request.query.userName;
+  const email = request.query.email;
+  const userId = request.query.userId;
 
   const filter = {};
   if (id) {
     filter._id = id;
   }
-  if (DNI) {
-    filter.DNI = DNI;
+  if (userId) {
+    filter.userId = userId;
   }
-  if (username) {
-    filter.userName = username;
+  if (userName) {
+    filter.userName = userName;
   }
-  if (name) {
-    filter.name = name;
+  if (email) {
+    filter.email = email;
   }
   User.find(filter, (error, result) => {
     if (error) {
       return response.status(500).send({ error })
     }
-    return response.send(result)
+    return response.status(200).send(result)
   })
 };
 
 const readSellers = (request, response) => {
 
-  const id = request.query.id;
-  const username = request.query.username;
-  const name = request.query.name;
-  const DNI = request.query.DNI;
+  const id= request.query._id;
+  const userName = request.query.userName;
+  const email = request.query.email;
+  const userId = request.query.userId;
 
   const filter = {};
-  filter.rol = 'Seller'
+  filter.rol = 'seller'
   if (id) {
     filter._id = id;
   }
-  if (DNI) {
-    filter.DNI = DNI;
+  if (userId) {
+    filter.userId =userId;
   }
-  if (username) {
-    filter.userName = username;
+  if (userName) {
+    filter.userName = userName;
   }
-  if (name) {
-    filter.name = name;
+  if (email) {
+    filter.email = email;
   }
   User.find(filter, (error, result) => {
     if (error) {
       return response.status(500).send({ error })
     }
-    return response.send(result)
+    return response.status(200).send(result)
   })
 };
 
 const readAdmins = (request, response) => {
 
-  const id = request.query.id;
-  const username = request.query.username;
-  const name = request.query.name;
-  const DNI = request.query.DNI;
+  const id= request.query._id;
+  const userName = request.query.userName;
+  const email = request.query.email;
+  const userId = request.query.userId;
 
   const filter = {};
-  filter.rol = 'Admin'
+  filter.rol = 'admin'
   if (id) {
     filter._id = id;
   }
-  if (DNI) {
-    filter.DNI = DNI;
+  if (userId) {
+    filter.userId =userId;
   }
-  if (username) {
-    filter.userName = username;
+  if (userName) {
+    filter.userName = userName;
   }
-  if (name) {
-    filter.name = name;
+  if (email) {
+    filter.email = email;
   }
   User.find(filter, (error, result) => {
     if (error) {
